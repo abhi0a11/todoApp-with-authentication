@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { Context, server } from "../main";
 import axios from "axios";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
+  const { isAuthenticated, setIsAuthenticated, loading, setLoading, setUser } =
     useContext(Context);
 
   const submitHandler = async e => {
@@ -27,17 +27,29 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      // console.log(data);
+      console.log("user data", data);
       toast.success(data.message);
       setIsAuthenticated(true);
       setLoading(fasle);
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log(err);
       setIsAuthenticated(false);
       setLoading(fasle);
     }
   };
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios
+  //     .get(`${server}/users/me`, {
+  //       withCredentials: true,
+  //     })
+  //     .then(res => {
+  //       setUser(res.data.user);
+  //     })
+  //     .catch(err => {
+  //       setUser({});
+  //     });
+  // }, []);
   if (isAuthenticated) return <Navigate to={"/"} />;
   return (
     <div className="login">
