@@ -7,7 +7,6 @@ export const server = "https://todo-app-8u04.onrender.com/api/v1";
 
 export const Context = createContext({
   isAuthenticated: false,
-  loading: false,
 });
 
 const AppWrapper = () => {
