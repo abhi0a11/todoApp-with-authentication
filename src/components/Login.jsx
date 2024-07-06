@@ -27,14 +27,14 @@ const Login = () => {
           withCredentials: true,
         }
       );
+
       toast.success(data.message);
       setIsAuthenticated(true);
-      setLoading(fasle);
+      setLoading(false);
     } catch (err) {
-      toast.error(err.response.data.message);
-
       setIsAuthenticated(false);
-      setLoading(fasle);
+      setLoading(false);
+      toast.error(err.response.data.message);
     }
   };
 

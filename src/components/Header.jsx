@@ -18,9 +18,10 @@ const Header = () => {
       toast.success("Logged out successfully");
       setIsAuthenticated(false);
       setLoading(false);
+      <Navigate to="/login" />;
     } catch (err) {
       toast.error(err.response.data.message);
-      console.log(err);
+      console.log("header error ", err);
       setIsAuthenticated(true);
       setLoading(false);
     }
@@ -32,7 +33,7 @@ const Header = () => {
       </div>
       <article>
         <Link to={"/"}>Home</Link>
-        <Link to={"/profile"}>Profile</Link>
+        {/* <Link to={"/profile"}>Profile</Link> */}
         {isAuthenticated ? (
           <button className="btn" onClick={logoutHandler}>
             Logout

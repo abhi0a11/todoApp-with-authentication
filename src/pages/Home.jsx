@@ -110,6 +110,7 @@ const Home = () => {
           return (
             <TodoItem
               title={i.title}
+              key={i}
               description={i.description}
               isCompleted={i.isCompleted}
               updateHandler={updateHandler}
