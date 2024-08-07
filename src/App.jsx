@@ -36,7 +36,6 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>} />
-        {/* <Route path="/profile" element={<Profile></Profile>} /> */}
         <Route path="/login" element={<Login></Login>} />
         <Route path="/register" element={<Register></Register>} />
       </Routes>

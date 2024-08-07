@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./styles/app.scss";
 import { createContext } from "react";
-export const server = "https://todo-app-v6c2.onrender.com/api/v1";
+// export const server = "https://todo-app-v6c2.onrender.com/api/v1";
+export const server = "https://todo-app-1-ixwa.onrender.com/api/v1";
 // export const server = "http://localhost:3000/api/v1";
 
 export const Context = createContext({
